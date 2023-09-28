@@ -1,0 +1,35 @@
+<%- include("header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= locals.name %></h1>
+    <div class = "container">
+        
+            <% if (locals.content) {%>
+                <% for (let i = 0; i < content.data.length; i++){ %>
+                    <div class = "anime-container">
+                        <a class = "link" target = "_blank" href="<%=content.data[i].url %>">
+                            <img class="image" src="<%=content.data[i].images.jpg.image_url %>" alt="thumbnail"/>
+                            <div class="bottom-right">
+                                <%= content.data[i].score  %>
+                            </div>
+                            
+                        </a>
+                        <p><%= content.data[i].titles[0].title %></p>
+                    </div>
+                <% } %>
+            <% } %>
+        
+        
+    </div>
+
+
+    
+</body>
+</html>
